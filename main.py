@@ -3,7 +3,7 @@ grafo = {'A':['E','I'],
    'I':['O'],
    'O':['A']}
    
-   class Vertice:
+class Vertice:
     def __init__(self,clave):
         self.id = clave
         self.conectadoA = {}
