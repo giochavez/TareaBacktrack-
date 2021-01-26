@@ -101,7 +101,7 @@ if __name__=="__main__":
     g.agregarArista('E','F')
     g.agregarArista('G','H')
     g.agregarArista('I','H')
-    print("Grafo:\n")
+    print("Grafo representado como grafo:\n")
     for v in g:
         for w in v.obtenerConexiones():
             print("(%s,%s)"%(v.obtenerId(), w.obtenerId()))
@@ -110,19 +110,17 @@ if __name__=="__main__":
         print(a.__str__())
     
     grafo={
-        "A":{"A":0,"B":20,"C":30,"D":100,"E":0,"F":50,"G":0,"H":0,"I":0},
-        "B":{"A":0,"B":0,"C":0,"D":0,"E":19,"F":0,"G":0,"H":0,"I":0},
-        "C":{"A":0,"B":0,"C":0,"D":0,"E":23,"F":0,"G":0,"H":0,"I":0},
-        "D":{"A":0,"B":0,"C":0,"D":0,"E":0,"F":0,"G":20,"H":0,"I":70},
-        "E":{"A":0,"B":0,"C":0,"D":0,"E":0,"F":42,"G":0,"H":0,"I":0},
-        "F":{"A":0,"B":0,"C":0,"D":0,"E":0,"F":0,"G":0,"H":0,"I":0},
-        "G":{"A":0,"B":0,"C":0,"D":0,"E":51,"F":0,"G":0,"H":16,"I":0},
-        "H":{"A":0,"B":0,"C":0,"D":0,"E":0,"F":19,"G":0,"H":0,"I":0},
-        "I":{"A":0,"B":0,"C":0,"D":0,"E":0,"F":0,"G":0,"H":0,"I":65}
+        "A":dict(zip('ABCDEFGHI',[0,20,30,100,0,50,0,0,0])),
+        "B":dict(zip('ABCDEFGHI',[0,0,0,0,19,0,0,0,0])),
+        "C":dict(zip('ABCDEFGHI',[0,0,0,0,23,0,0,0,0])),
+        "D":dict(zip('ABCDEFGHI',[0,0,0,0,0,0,20,0,70])),
+        "E":dict(zip('ABCDEFGHI',[0,0,0,0,0,42,0,0,0])),
+        "F":dict(zip('ABCDEFGHI',[0,0,0,0,0,0,0,0,0])),
+        "G":dict(zip('ABCDEFGHI',[0,0,0,0,0,0,0,16,0])),
+        "H":dict(zip('ABCDEFGHI',[0,0,0,0,0,0,0,0,0])),
+        "I":dict(zip('ABCDEFGHI',[0,0,0,0,0,0,0,0,65]))
     }
-
-    ini = input("Nodo inicio? (MAYÚSCULA) ")
     fin = input("Nodo término (MAYÚSCULA)? ")
     print("\nSolución:")
-    prueba=backtrack(grafo,ini,fin)
+    prueba=backtrack(grafo,"A",fin)
     print(prueba)
